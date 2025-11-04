@@ -1,0 +1,79 @@
+{
+  "scene1": {
+    "totalUsers": 5600000,
+    "year": 2020,
+    "dcPopulation": 700000,
+    "dcMultiplier": 8,
+    "dcCoordinates": {
+      "lat": 38.9072,
+      "lon": -77.0369
+    },
+    "dotScale": 1000,
+    "dotsPerFlash": 88,
+    "timing": {
+      "flashInterval": 500,
+      "flashCount": 8,
+      "zoomDuration": 800,
+      "counterDuration": 1500
+    }
+  },
+  "scene2": {
+    "enrollmentPercent": 6,
+    "spendingPercent": 37,
+    "totalPeople": 100,
+    "ltssUsers": 6
+  },
+  "scene3": {
+    "categories": [
+      {
+        "name": "HCBS",
+        "label": "Home & Community-Based",
+        "percent": 72,
+        "icon": "home",
+        "color": "#10b981"
+      },
+      {
+        "name": "Institutional",
+        "label": "Institutional",
+        "percent": 24,
+        "icon": "building",
+        "color": "#ef4444"
+      },
+      {
+        "name": "Both",
+        "label": "Both",
+        "percent": 4,
+        "icon": "both",
+        "color": "#f59e0b"
+      }
+    ]
+  },
+  "scene4": {
+    "ageGroups": [
+      {
+        "label": "Under 65",
+        "percent": 56,
+        "color": "#667eea"
+      },
+      {
+        "label": "Age 65+",
+        "percent": 44,
+        "color": "#764ba2"
+      }
+    ]
+  },
+  "scene5": {
+    "trendData": [
+      { "year": 2010, "hcbs": 58, "institutional": 42 },
+      { "year": 2012, "hcbs": 62, "institutional": 38 },
+      { "year": 2014, "hcbs": 66, "institutional": 34 },
+      { "year": 2016, "hcbs": 70, "institutional": 30 },
+      { "year": 2018, "hcbs": 75, "institutional": 25 },
+      { "year": 2020, "hcbs": 80, "institutional": 20 },
+      { "year": 2021, "hcbs": 86, "institutional": 14 }
+    ]
+  },
+  "scene6": {
+    "message": "Behind every datapoint is a person — a family — a life with dignity and independence."
+  }
+}

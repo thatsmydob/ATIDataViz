@@ -1,0 +1,354 @@
+/* ============================================
+   Medicaid LTSS Scrollytelling Styles
+   ============================================ */
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    overflow-x: hidden;
+}
+
+/* Container */
+#container {
+    position: relative;
+}
+
+/* Sticky Graphic - Right Side (60%) */
+#graphic {
+    position: sticky;
+    top: 0;
+    left: 40%;
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    z-index: 1;
+}
+
+#chart {
+    width: 90%;
+    max-width: 900px;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Scrolling Sections - Left Side (40%) */
+#sections {
+    position: relative;
+    width: 40%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.step {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem 1.5rem;
+    pointer-events: none;
+}
+
+.step-spacer {
+    min-height: 60vh;
+}
+
+.step-content {
+    max-width: 100%;
+    width: 100%;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    pointer-events: all;
+    margin-left: 0;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.step.is-active .step-content {
+    opacity: 1;
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #4a5568;
+}
+
+.key-stat {
+    font-size: 1.3rem;
+    color: #667eea;
+    line-height: 1.4;
+}
+
+.why-matters {
+    font-style: italic;
+    color: #718096;
+    border-left: 3px solid #667eea;
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+}
+
+ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+}
+
+/* Scroll Cue Animation */
+.scroll-cue {
+    font-weight: 600;
+    color: #667eea;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cta-btn {
+    padding: 0.75rem 1.5rem;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.cta-btn:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.cta-btn:active {
+    transform: translateY(0);
+}
+
+/* SVG Styles */
+svg {
+    overflow: visible;
+}
+
+.chart-title {
+    font-size: 24px;
+    font-weight: 600;
+    fill: white;
+    text-anchor: middle;
+}
+
+.chart-subtitle {
+    font-size: 16px;
+    fill: rgba(255, 255, 255, 0.8);
+    text-anchor: middle;
+}
+
+/* Icon Grid */
+.icon-person {
+    fill: white;
+    opacity: 0.9;
+}
+
+.icon-person.highlight {
+    fill: #fbbf24;
+    opacity: 1;
+}
+
+/* Donut Chart */
+.donut-segment {
+    stroke: #667eea;
+    stroke-width: 2;
+}
+
+.donut-label {
+    font-size: 18px;
+    font-weight: 600;
+    fill: white;
+    text-anchor: middle;
+}
+
+.donut-percent {
+    font-size: 32px;
+    font-weight: 700;
+    fill: white;
+}
+
+/* Bar Chart */
+.bar {
+    transition: all 0.5s ease;
+}
+
+.bar-label {
+    font-size: 16px;
+    font-weight: 600;
+    fill: white;
+}
+
+/* Line Chart */
+.line {
+    fill: none;
+    stroke-width: 3;
+}
+
+.line-hcbs {
+    stroke: #10b981;
+}
+
+.line-institutional {
+    stroke: #ef4444;
+}
+
+.area {
+    opacity: 0.3;
+}
+
+.area-hcbs {
+    fill: #10b981;
+}
+
+.area-institutional {
+    fill: #ef4444;
+}
+
+.axis {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.axis line,
+.axis path {
+    stroke: rgba(255, 255, 255, 0.3);
+}
+
+.axis text {
+    fill: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+}
+
+/* Responsive Design - Mobile: Stack vertically */
+@media (max-width: 768px) {
+    /* Stack layout vertically on mobile */
+    #graphic {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: 60vh;
+    }
+
+    #sections {
+        width: 100%;
+    }
+
+    #chart {
+        width: 95%;
+        height: 50vh;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .step-content {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .step {
+        padding: 1rem;
+        min-height: 60vh;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-btn {
+        width: 100%;
+    }
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scale-in {
+    animation: scaleIn 0.8s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicaid LTSS: A Visual Story</title>
+
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Scrollama -->
+    <script src="https://unpkg.com/intersection-observer@0.12.0/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Main Container -->
+    <main id="container">
+
+        <!-- Sticky Graphic -->
+        <div id="graphic">
+            <div id="chart">
+                <!-- D3 visualizations render here -->
+            </div>
+        </div>
+
+        <!-- Scrolling Text Steps -->
+        <div id="sections">
+
+            <!-- Scene 0: Title -->
+            <section class="step" data-step="0">
+                <div class="step-content">
+                    <h1>The Scale & Shift of Long-Term Services & Supports in Medicaid</h1>
+                    <p>Millions rely on these services every day to live safely and independently.</p>
+                    <p class="scroll-cue">Scroll to explore �</p>
+                </div>
+            </section>
+
+            <!-- Scene 1: LTSS Reaches Millions -->
+            <section class="step" data-step="1">
+                <div class="step-content">
+                    <h2>8 Washington D.C.s Worth of People</h2>
+                    <p class="key-stat"><strong>5.6 million</strong> people used Medicaid LTSS in 2020</p>
+                    <p>Watch as we visualize this scale using a familiar reference point: the population of Washington, D.C.</p>
+                    <p><strong>700,000</strong> people live in D.C. &mdash; multiply that by <strong>8</strong>, and you get the number of Americans who depend on LTSS for daily support.</p>
+                    <p class="why-matters">This isn't a niche program &mdash; it's supporting millions of families across the nation.</p>
+                </div>
+            </section>
+
+            <!-- Scene 2: Small Share, Big Impact -->
+            <section class="step" data-step="2">
+                <div class="step-content">
+                    <h2>Small Share, Big Spending Impact</h2>
+                    <p class="key-stat">
+                        <strong>6%</strong> of Medicaid enrollees use LTSS<br>
+                        But account for <strong>37%</strong> of spending
+                    </p>
+                    <p>Out of <strong>100 Medicaid enrollees</strong>, only <strong>6</strong> need LTSS  yet they drive spending equivalent to <strong>37 people</strong>.</p>
+                    <p class="why-matters">Resource-intensive population � critical policy & budget implications.</p>
+                </div>
+            </section>
+
+            <!-- Scene 3: Most Care at Home -->
+            <section class="step" data-step="3">
+                <div class="step-content">
+                    <h2>Most People Receive Care at Home</h2>
+                    <p>Out of every 100 LTSS users:</p>
+                    <ul>
+                        <li><strong>72</strong> live in the community</li>
+                        <li><strong>24</strong> in facilities</li>
+                        <li><strong>4</strong> use both</li>
+                    </ul>
+                    <p class="why-matters">The U.S. has shifted toward <em>aging in place & independence</em>.</p>
+                </div>
+            </section>
+
+            <!-- Scene 4: Not Only Older Adults -->
+            <section class="step" data-step="4">
+                <div class="step-content">
+                    <h2>LTSS Is Not Only for Older Adults</h2>
+                    <p class="key-stat"><strong>56%</strong> of LTSS users are under age 65</p>
+                    <p>More than half are younger adults with disabilities or complex needs.</p>
+                    <p class="why-matters">Shatters the myth that LTSS = "nursing homes for seniors."</p>
+                </div>
+            </section>
+
+            <!-- Scene 5: Home-Based Care Accelerating -->
+            <section class="step" data-step="5">
+                <div class="step-content">
+                    <h2>Home-Based Care Is Accelerating</h2>
+                    <p class="key-stat">By 2021, <strong>~86%</strong> of LTSS users received HCBS</p>
+                    <p>Out of 100 LTSS users today, <strong>86</strong> receive support at home.</p>
+                    <p class="why-matters">Structural system shift � policy success & new workforce needs.</p>
+                </div>
+            </section>
+
+            <!-- Scene 6: Closing Message -->
+            <section class="step" data-step="6">
+                <div class="step-content">
+                    <h2>Behind every datapoint is a person</h2>
+                    <p>A family. A life with dignity and independence.</p>
+                    <div class="cta-buttons">
+                        <button class="cta-btn" onclick="alert('State explorer coming soon!')">Explore your state �</button>
+                        <button class="cta-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Replay story</button>
+                        <button class="cta-btn" onclick="alert('Data download coming soon!')">Download data</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Spacer for scroll -->
+            <section class="step step-spacer"></section>
+
+        </div>
+    </main>
+
+    <!-- Load Scene Modules -->
+    <script src="js/scenes/scene0.js"></script>
+    <script src="js/scenes/scene1.js"></script>
+    <script src="js/scenes/scene2.js"></script>
+    <script src="js/scenes/scene3.js"></script>
+    <script src="js/scenes/scene4.js"></script>
+    <script src="js/scenes/scene5.js"></script>
+    <script src="js/scenes/scene6.js"></script>
+
+    <!-- Main Application -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
