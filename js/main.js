@@ -24,6 +24,11 @@ async function init() {
         const response = await fetch('data/ltss_data.json');
         ltssData = await response.json();
 
+        // Make the freshly loaded data available to all scene modules
+        if (window.ltssApp) {
+            window.ltssApp.ltssData = ltssData;
+        }
+
         // STEP 2: Configure Scrollama for scroll-triggered animations
         // This watches for when user scrolls to each section
         setupScrollama();
@@ -68,6 +73,9 @@ function handleStepEnter(response) {
 
     // Update global state to track current scene
     currentScene = stepIndex;
+    if (window.ltssApp) {
+        window.ltssApp.currentScene = currentScene;
+    }
 
     // Add 'is-active' class to the current step
     // This makes the text box fully opaque (CSS: opacity: 1)
@@ -80,7 +88,11 @@ function handleStepEnter(response) {
             drawScene0();  // Title screen
             break;
         case 1:
-            drawScene1();  // Icon grid - 5.6M people
+            if (typeof window.renderSceneStadium === 'function') {
+                window.renderSceneStadium();  // Stadium metaphor - 70 venues
+            } else {
+                console.warn('Stadium scene not yet available');
+            }
             break;
         case 2:
             drawScene2();  // Icon grid morphs to donut chart
@@ -180,6 +192,13 @@ window.ltssApp = {
     homeIconPath,       // SVG path for home icon
     buildingIconPath    // SVG path for building icon
 };
+
+if (typeof window.renderSceneStadium === 'function') {
+    window.ltssApp.renderSceneStadium = window.renderSceneStadium;
+}
+if (typeof window.drawSceneStadium === 'function') {
+    window.ltssApp.drawSceneStadium = window.drawSceneStadium;
+}
 
 // === APPLICATION STARTUP ===
 // Initialize the app when the DOM is ready

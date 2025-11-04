@@ -40,7 +40,7 @@ A scrollytelling webpage that visualizes the scale and transformation of Medicai
    - Purple gradient background theme
 
 3. **[data/ltss_data.json](data/ltss_data.json)** - Static data file
-   - Scene 1: 5.6M users, icon scaling data
+   - Scene 1: Leverages shared constants in `stadium_config.js` (JSON reserved for overrides)
    - Scene 2: 6% enrollment, 37% spending disparity
    - Scene 3: Care settings distribution (72% HCBS, 24% Institutional, 4% Both)
    - Scene 4: Age distribution (56% under 65, 44% 65+)
@@ -60,31 +60,35 @@ A scrollytelling webpage that visualizes the scale and transformation of Medicai
    - Four corner decorative dots
    - Block-level comments
 
-6. **[js/scenes/scene1.js](js/scenes/scene1.js)** - Scale visualization
-   - Animated counter (0 → 5,600,000)
-   - Icon grid (560 dots, 1 dot = 10,000 people)
-   - Staggered dot appearance animation
-   - Block-level comments
+6. **[js/scenes/scene_stadium.js](js/scenes/scene_stadium.js)** - Stadium metaphor
+   - 70-slot SVG grid with inline stadium icon
+   - Phased illumination (30 + 32 active, 8 placeholders)
+   - Animated counter to 5,600,000 with cinematic text overlays
+   - Accessibility titles on each icon
 
-7. **[js/scenes/scene2.js](js/scenes/scene2.js)** - Spending disparity
+7. **[js/scenes/stadium_config.js](js/scenes/stadium_config.js)** - Shared constants
+   - Grid size, palette, easing, and copy used by the stadium scene
+   - Enables consistent reuse if additional scenes reference the metaphor
+
+8. **[js/scenes/scene2.js](js/scenes/scene2.js)** - Spending disparity
    - Two-stage animation: Icon grid → Donut chart
    - 100-person grid with 6 highlighted
    - Smooth morph transition using D3
    - Block-level comments
 
-8. **[js/scenes/scene3.js](js/scenes/scene3.js)** - Care settings
+9. **[js/scenes/scene3.js](js/scenes/scene3.js)** - Care settings
    - Horizontal stacked bar chart
    - Three segments (HCBS, Institutional, Both)
    - Icons above each bar (home, building, checkmark)
    - Block-level comments
 
-9. **[js/scenes/scene4.js](js/scenes/scene4.js)** - Age distribution
+10. **[js/scenes/scene4.js](js/scenes/scene4.js)** - Age distribution
    - Side-by-side vertical bars
    - Person silhouette icons above each bar
    - Proportional bar heights based on percentages
    - Block-level comments
 
-10. **[js/scenes/scene5.js](js/scenes/scene5.js)** - Trend analysis
+11. **[js/scenes/scene5.js](js/scenes/scene5.js)** - Trend analysis
     - Dual line chart (HCBS vs Institutional)
     - Area fills below lines
     - Animated path drawing effect
@@ -92,7 +96,7 @@ A scrollytelling webpage that visualizes the scale and transformation of Medicai
     - Endpoint highlighting for 2021 values
     - Block-level comments
 
-11. **[js/scenes/scene6.js](js/scenes/scene6.js)** - Closing message
+12. **[js/scenes/scene6.js](js/scenes/scene6.js)** - Closing message
     - Vignette background effect
     - Sequential text fade-in animations
     - Decorative person icons in corners
@@ -141,25 +145,25 @@ A scrollytelling webpage that visualizes the scale and transformation of Medicai
 
 ```
 Data Viz/
-├── .claude/
-│   └── settings.local.json
-├── css/
-│   └── style.css                 ✅ Complete with comments
-├── data/
-│   ├── ltss_data.json            ✅ Complete
-│   └── ATI_Medicaid_LTSS_Users_by_Setting_State_County_20250610.xlsx
-├── js/
-│   ├── main.js                   ✅ Complete with comments
-│   └── scenes/
-│       ├── scene0.js             ✅ Complete with comments
-│       ├── scene1.js             ✅ Complete with comments
-│       ├── scene2.js             ✅ Complete with comments
-│       ├── scene3.js             ✅ Complete with comments
-│       ├── scene4.js             ✅ Complete with comments
-│       ├── scene5.js             ✅ Complete with comments
-│       └── scene6.js             ✅ Complete with comments
-├── index.html                    ✅ Complete
-├── project_status.md             ✅ This file
++-- .claude/
+�   +-- settings.local.json
++-- css/
+�   +-- style.css                 [complete with comments]
++-- data/
+�   +-- ltss_data.json            [complete]
+�   +-- ATI_Medicaid_LTSS_Users_by_Setting_State_County_20250610.xlsx
++-- js/
+�   +-- main.js                   [complete with comments]
+�   +-- scenes/
+�       +-- scene0.js             [complete with comments]
+�       +-- scene_stadium.js      [complete with comments]
+�       +-- stadium_config.js     [shared constants]
+�       +-- scene2.js             [complete with comments]
+�       +-- scene3.js             [complete with comments]
+�       +-- scene4.js             [complete with comments]
+�       +-- scene5.js             [complete with comments]
+�       +-- scene6.js             [complete with comments]
++-- index.html                    [complete]
 ├── prompt.md                     📄 Reference
 └── storyboard.md                 📄 Reference
 ```
@@ -170,13 +174,13 @@ Data Viz/
 
 | Scene | Title | Visualization | Key Insight | Status |
 |-------|-------|---------------|-------------|---------|
-| 0 | Title Screen | Gradient + Text | Introduction | ✅ Complete |
-| 1 | Scale | Icon Grid + Counter | 5.6M users | ✅ Complete |
-| 2 | Spending Impact | Grid → Donut Morph | 6% users, 37% spending | ✅ Complete |
-| 3 | Care Settings | Stacked Bar | 72% HCBS | ✅ Complete |
-| 4 | Age Distribution | Vertical Bars | 56% under 65 | ✅ Complete |
-| 5 | Trends | Line Chart | HCBS growth to 86% | ✅ Complete |
-| 6 | Closing | Text + Icons | Human message | ✅ Complete |
+| 0 | Title Screen | Gradient + Text | Introduction | Complete |
+| 1 | Stadiums Worth of Support | 70-icon Stadium Grid | 5.6M people rely on LTSS | Complete |
+| 2 | Spending Impact | Grid -> Donut Morph | 6% users, 37% spending | Complete |
+| 3 | Care Settings | Stacked Bar | 72% HCBS | Complete |
+| 4 | Age Distribution | Vertical Bars | 56% under 65 | Complete |
+| 5 | Trends | Line Chart | HCBS growth to 86% | Complete |
+| 6 | Closing | Text + Icons | Human message | Complete |
 
 ---
 
@@ -245,7 +249,7 @@ Data Viz/
 - [ ] Ensure color contrast ratios meet WCAG standards
 
 ### Performance:
-- [ ] Optimize icon rendering (consider canvas for Scene 1)
+- [ ] Optimize stadium icon rendering (consider sprite sheet or canvas)
 - [ ] Lazy load scenes
 - [ ] Add loading indicators
 - [ ] Optimize asset delivery
@@ -272,7 +276,7 @@ Data Viz/
 ### Code Style Conventions:
 - Block-level comments with === markers
 - Inline comments for complex logic only
-- Functions named as `drawSceneX()` for consistency
+- Functions named as `drawSceneX()` or descriptive wrappers such as `renderSceneStadium`
 - Data accessed via `window.ltssApp.ltssData`
 
 ### Testing the Project:
@@ -284,6 +288,12 @@ Data Viz/
 ---
 
 ## Change Log
+
+### 2025-11-04 - Stadium Metaphor Update
+- Replaced the Washington, D.C. metaphor with a stadium scene
+- Added `scene_stadium.js` with phased icon animations
+- Introduced `stadium_config.js` for shared scene constants
+- Updated data, styles, and storyboard documentation to match
 
 ### 2025-11-04 - Initial Implementation
 - Created full project structure

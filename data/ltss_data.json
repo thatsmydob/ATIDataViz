@@ -1,22 +1,5 @@
 {
-  "scene1": {
-    "totalUsers": 5600000,
-    "year": 2020,
-    "dcPopulation": 700000,
-    "dcMultiplier": 8,
-    "dcCoordinates": {
-      "lat": 38.9072,
-      "lon": -77.0369
-    },
-    "dotScale": 1000,
-    "dotsPerFlash": 88,
-    "timing": {
-      "flashInterval": 500,
-      "flashCount": 8,
-      "zoomDuration": 800,
-      "counterDuration": 1500
-    }
-  },
+  "scene1": {},
   "scene2": {
     "enrollmentPercent": 6,
     "spendingPercent": 37,
